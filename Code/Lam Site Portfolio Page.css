@@ -1,0 +1,362 @@
+
+
+  .project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6%;
+    column-gap: 10%;
+    row-gap: 10%;
+    padding-bottom: 10px;
+    transform-style: preserve-3d;
+  }
+
+  .project-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    gap: 0.21vw; /* Converted from 4px */
+    border-radius: 4px;
+    margin-bottom: 24px;
+    margin-top: 24px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5),
+      0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    background: var(--Card-Color, #f6f6f6);
+    justify-content: space-evenly;
+    gap: 4px;
+    width: calc(33.333% - 14px);
+    max-width: 25.35410764872521vw; /* Converted from 340px */
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    animation: float 3s ease-in-out infinite;
+    animation: scale 3s ease-in-out infinite;
+    transition: scale 0.5s ease-in-out, border 0.5s ease-in-out;
+  }
+
+  .project-box:hover {
+    scale: 1.05;
+    border: 0.85px solid var(--main-text-color);
+
+  }
+
+  .project-box:active {
+    animation: projBoxActive 1s ease-in-out forwards;
+  }
+
+  .project-box:focus {
+    scale: 1.05;
+    border: 0.85px solid var(--main-text-color);
+  }
+
+  .dark-mode .project-box {
+    box-shadow: 0px 0px 15px 5px var(--main-text-color),
+      0px 0px 15px 5px var(--main-text-color) inset;
+    outline: none;
+  }
+
+  .proj-pic {
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  .proj-pic-two {
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  /* Style for the overlay */
+  .overlay {
+    display: none; /* Hidden by default */
+    opacity: 0; /* Transparent background */
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent background */
+    z-index: 1000; /* Ensure it's on top */
+    justify-content: center;
+    align-items: center;
+    overflow: auto; /* Enable scroll if needed */
+    transform-origin: center;
+    transition: all 0.5s ease-in-out;
+  }
+  .final-overlay-pic {
+    grid-column: 1/-1;
+    justify-self: center;
+    max-width: 50%;
+    border-radius: 4px;
+    grid-area: footer;
+  }
+
+  .overlay img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 4px;
+    gap: 40px;
+  }
+
+  .overlay-img {
+    width: 50%;
+    height: fit-content;
+    border-radius: 4px;
+    display: inline-flex;
+    transition: all 0.25s ease-in-out;
+  }
+
+  .overlay-img:hover {
+    scale: 1.25;
+    border: 0.85px solid var(--main-text-color);
+    box-shadow: 0px 8px 4px 0px rgba(0, 0, 0, 0.25);
+    z-index: 10000;
+    
+  }
+
+  .overlay-img:active {
+    scale: 1.5;
+    border: 0.85px solid var(--main-text-color);
+    z-index: 100000;
+  }
+
+  .overlay-content {
+    background-color: var(--bg-color);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: 4px;
+    text-align: center;
+    max-width: 60vw;
+    min-width: 50vw;
+    height:fit-content;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-template-areas: "header header" "main main" "footer footer";
+    grid-template-columns: repeat(auto-fit, 1fr);
+    scroll-behavior: smooth;
+    overflow: auto;
+
+  }
+
+  .main-overlay-img {
+    max-width: 80vw;
+    border-radius: 4px;
+  }
+
+  .overlay-title {
+    grid-area: header;
+    color: var(--main-text-color);
+    font-size: var(--font-size-h1);
+  }
+  .overlay-pics {
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4vh;
+    width: 100%;
+    /* grid-area: main;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    height: 100%;
+    */
+  }
+
+  .close-overlay {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 60px;
+    cursor: pointer;
+    color: white;
+  }
+
+  .dev-credits-proj {
+    color: var(--main-text-color);
+    font-size: var(--font-size-smallest);
+    font-family: "Cormorant Garamond";
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .dev-credits-proj:hover {
+    scale: 1.5;
+  }
+
+
+  /* Show the overlay when active */
+  .overlay.active {
+    display: flex; /* Make it visible and center it */
+    flex-direction: row;
+    opacity: 1;
+ 
+  }
+  /* Blur everything inside body */
+  body.blurred * {
+    transition: all 0.5s ease-in-out;
+    filter: blur(5px); /* Apply blur to everything */
+    
+  }
+
+  /* Exclude the active element and its children */
+  body.blurred .overlay.active,
+  body.blurred .overlay.active * {
+    filter: none; /* Remove blur from the active element */
+  }
+
+  
+
+@keyframes projBoxActive {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.85);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+
+  50% {
+      transform: translateY(-10px);
+  }
+
+  100% {
+      transform: translateY(0);
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.015);
+  }
+  100% {
+    transform: scale(1);
+  }
+  
+}
+
+
+@media (max-width: 480px)  {
+  .bg {
+    width: 100%;
+    max-width: 480px;
+  }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 6%;
+      column-gap: 10%;
+      row-gap: 10%;
+      padding-bottom: 10px;
+      width: 100%;
+      max-width: 100%;
+    }
+    .project-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: center;
+      align-items: center;
+      gap: 6%;
+      column-gap: 10%;
+      row-gap: 10%;
+      padding-bottom: 10px;
+      transform-style: preserve-3d;
+      width: 100%;
+      max-width: 100%;
+    }
+    .project-box {
+      width: 75%;
+      max-width: 100%;
+      box-shadow: var(--box-shadow);
+    }
+    .proj-pic {
+      width: 100%;
+    }
+
+  
+  .overlay-content {
+
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+
+  .overlay-img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 0;
+    display: block;
+  }
+
+  .overlay-pics {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+  }
+
+
+  .overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height:calc(var(--vh, 1vh) * 100);
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    overflow: hidden;
+    transform-origin: center;
+    transition: all 0.5s ease-in-out;
+    }
+
+    .overlay.active {
+      display:flex;
+      flex-direction: column;
+      opacity: 1;
+    }
+
+    .close-overlay {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      font-size: 60px;
+      cursor: pointer;
+      color: white;
+    }
+  }
+
+
+
+
+  

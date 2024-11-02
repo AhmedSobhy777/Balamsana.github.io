@@ -1,0 +1,1305 @@
+:root {
+  --default-body-text-size: 16px; /* Define the CSS variable */
+  font-family: "Cormorant Garamond";
+  /* Default Light Mode */
+  --main-text-color: #58595b;
+  --bg-color: #f6f6f6;
+  --button-base-bg-color: #000000;
+  --button-active-bg-color: #b7b7b7;
+  --button-base-bg-hover: #d9d9d9;
+  --button-text-color: #d9d9d9;
+  --button-hover-text-color: #000000;
+  --slider-color: #000000;
+  --word-highlight-color: #c0c0c0;
+  --card-color: #f6f6f6;
+  --forms-color: #000000;
+  --rage-mag-color: #c0c0c0;
+  --box-shadow: rgba(0, 0, 0, 0.25);
+  --outline-color: #000000;
+  --font-size-h1: 2.0275rem; /* 32.44px / 16 */
+  --font-size-h2: 1.8019rem; /* 28.83px / 16 */
+  --font-size-h3: 1.6019rem; /* 25.63px / 16 */
+  --font-size-h4: 1.4237rem; /* 22.78px / 16 */
+  --font-size-h5: 1.2656rem; /* 20.25px / 16 */
+  --font-size-h6: 1.125rem; /* 18px */
+  --font-size-p: 1rem; /* 16px */
+  --font-size-small: 0.8887rem; /* 14.22px */
+  --font-size-smallest: 0.79rem; /* 12.64px */
+  font-weight: 400;
+  --webkit-font-smoothing: antialiased;
+  --webkit-overflow-scrolling: touch;
+}
+
+body.dark-mode {
+  --main-text-color: #ffffff;
+  --bg-color: #1b1b1b;
+  --button-base-bg-color: #d9d9d9;
+  --button-active-bg-color: #1d1d1d;
+  --button-base-bg-hover: #232323;
+  --button-text-color: #000000;
+  --button-hover-text-color: #ffffff;
+  --slider-color: #ffffff;
+  --word-highlight-color: #c0c0c0;
+  --card-color: #202020;
+  --forms-color: #ffffff;
+  --rage-mag-color: #c0c0c0;
+  --box-shadow: rgba(255, 255, 255, 0.075);
+  --outline-color: #ffffff;
+}
+
+.hidden {
+  opacity: 0;
+  filter: blur(10px);
+  scale: 0.8;
+  transition: all 1.5s ease-in-out;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0px);
+  scale: 1;
+}
+
+.full-screen-nav-overlay {
+  visibility: hidden;
+  width: 100vw;
+  height: 101vh;
+  z-index: -1000;
+  top: 0;
+  left: 0;
+
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+  transition: all 0.65s ease-in-out;
+}
+
+.full-screen-nav-overlay.active {
+  visibility: visible;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  display: block;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  opacity: 0;
+  display: none;
+  /* animation: fadeInLogoDark 3s ease-in-out 0.5s forwards; */
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  scale: 0.8;
+  background-color: var(--bg-color);
+  display: block;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  z-index: 10000;
+  opacity: 0;
+  animation: fadeInLogoDark 3s ease-in-out 0.5s forwards;
+  -webkit-animation: fadeInLogoDark 3s ease-in-out 0.5s forwards;
+}
+
+.letter-logo-loader {
+  display: inline-flex;
+  font-size: 2.5rem;
+  color: var(--main-text-color);
+  transition: all 0.5s ease-in-out;
+  animation: fadeInLogo 3s ease-in-out 0.5s forwards;
+  transform-style: preserve-3d;
+  transform-origin: center;
+  opacity: 0;
+  -webkit-animation: fadeInLogoDark 3s ease-in-out 0.5s forwards;
+}
+
+
+
+.dark-mode .letter-logo-loader {
+  filter: drop-shadow(0px 0px 0.4px var(--main-text-color));
+ animation: fadeInLogoDark 3s ease-in-out 0.5s forwards;
+  -webkit-animation: fadeInLogoDark 3s ease-in-out 0.5s forwards;
+
+}
+
+.letter-logo-loader:nth-child(1) {
+  animation-delay: 0s;
+  -webkit-animation-delay: 0ms;
+}
+
+.letter-logo-loader:nth-child(2) {
+  animation-delay: 0.1s;
+  -webkit-animation-delay: 100ms;
+}
+
+.letter-logo-loader:nth-child(3) {
+  animation-delay: 0.2s;
+  -webkit-animation-delay: 200ms;
+}
+
+.letter-logo-loader:nth-child(4) {
+  animation-delay: 0.3s;
+  -webkit-animation-delay: 300ms;
+}
+
+.letter-logo-loader:nth-child(5) {
+  animation-delay: 0.4s;
+  -webkit-animation-delay: 400ms;
+}
+
+.letter-logo-loader:nth-child(6) {
+  animation-delay: 0.5s;
+  -webkit-animation-delay: 500ms;
+}
+
+.letter-logo-loader:nth-child(7) {
+  animation-delay: 0.6s;
+  -webkit-animation-delay: 600ms;
+}
+
+.letter-logo-loader:nth-child(8) {
+  animation-delay: 0.7s;
+  -webkit-animation-delay: 700ms;
+}
+
+.letter-logo-loader:nth-child(9) {
+  animation-delay: 0.8s;
+  -webkit-animation-delay: 800ms;
+}
+
+
+
+
+img {
+  user-select: none; /* Disable text selection */
+  -webkit-user-drag: none; /* Disable image dragging in WebKit browsers */
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+*:focus-visible {
+  outline: 1px outset var(--outline-color);
+  outline-offset: 2px;
+}
+
+.bg {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.full-width-line {
+  width: 100%;
+  height: 1px;
+}
+
+.dark-mode.full-width-line {
+  filter: drop-shadow(0px 0px 8px var(--main-text-color));
+}
+
+.title {
+  text-align: center;
+  text-decoration: underline 2px;
+}
+/* Apply the variables */
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+}
+
+h6 {
+  font-size: var(--font-size-h6);
+}
+
+p {
+  font-size: var(--font-size-p);
+}
+
+small {
+  font-size: var(--font-size-small);
+}
+
+smallest-text {
+  font-size: var(--font-size-smallest);
+}
+
+h1 {
+  font-family: "Cormorant Garamond";
+  font-size: 2.027rem; /* Converted from 32.43px */
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--main-text-color);
+}
+body {
+  background-color: var(--bg-color);
+  font-family: "Cormorant Garamond";
+  font-weight: 400;
+  font-size: var(--default-body-text-size); /* Use the CSS variable */
+  transition: opacity 1s ease-in-out 0.5s;
+}
+
+/* When the page has fully loaded, the body becomes visible */
+body.fade-in {
+  opacity: 1;
+}
+/* Media queries to adjust font sizes for smaller screens */
+@media (max-width: 932px)  {
+  :root {
+    --font-size-h1: 1.75rem; /* Adjusted for tablet */
+    --font-size-h2: 1.6rem;
+    --font-size-h3: 1.4rem;
+    --font-size-h4: 1.25rem;
+    --font-size-h5: 1.1rem;
+    --font-size-h6: 1rem;
+    --font-size-p: 0.95rem;
+    --font-size-small: 0.85rem;
+    --font-size-smallest: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-h1: 1.5rem; /* Adjusted for mobile */
+    --font-size-h2: 1.3rem;
+    --font-size-h3: 1.2rem;
+    --font-size-h4: 1.1rem;
+    --font-size-h5: 1rem;
+    --font-size-h6: 0.9rem;
+    --font-size-p: 0.875rem;
+    --font-size-small: 0.8rem;
+    --font-size-smallest: 0.7rem;
+
+    /* body {
+      font-size: 0.875rem; /* Adjusted for mobile */
+      /* overflow-x: hidden;
+    } */ 
+    /* html {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 102%;
+    } */
+    .logo {
+      width: 50%;
+      flex-shrink: 1;
+      min-width: 150px;
+      margin-left: 4px;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+    .nav a {
+      display: none;
+    }
+    .nav-container {
+      padding: 8px 8px;
+      display: flex;
+    }
+
+    .ham-menu {
+      display: inline-flex;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+      align-items: center;
+      justify-content: space-evenly;
+      margin-right: 8px;
+      margin-top: -24px;
+      margin-bottom: -24px;
+      margin-left: -12px;
+      opacity: 1;
+      scale: 1;
+      width: 20px;
+      touch-action: auto;
+      padding: 24px 12px;
+    }
+    .ham-menu:active {
+      scale: 1.05;
+      rotate: 90deg;
+    }
+    .dark-mode.ham-menu {
+      filter: invert(100%);
+    }
+
+    .nav-mobile-overlay {
+      display: none;
+      width: 35vw;
+      height: 100vh;
+      top: 0;
+      right: 0;
+      position: fixed;
+      background-color: var(--bg-color);
+      z-index: 10000;
+      opacity: 0;
+      border-radius: 4px;
+      transition: all 0.5s ease-in-out;
+      animation: fadeInNav 0.65s ease-in-out reverse;
+    }
+
+    .nav-mobile-overlay.active {
+      display: block;
+      z-index: 10000;
+      width: 35vw;
+      height: 100vh;
+      opacity: 1;
+      animation: fadeInNav 0.65s ease-in-out forwards;
+    }
+
+    .nav-mobile-overlay a {
+      display: flex;
+      text-align: center;
+      padding: 16px;
+      font-size: var(--font-size-h5);
+      color: var(--main-text-color);
+      text-decoration: none;
+      transition: all 0.5s ease-in-out;
+      justify-content: center;
+    }
+    .contact,
+    .contact-letters {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .contact {
+      scale: 0.8;
+    }
+    .contact-letters-span-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    #theme-toggle {
+      display: inline-flex;
+      cursor: pointer;
+      touch-action: auto;
+    }
+
+    .footer {
+      display: flex;
+      flex-direction: column;
+      
+    }
+    .site-credits {
+      gap: 4px;
+      display: block;
+      box-sizing: border-box;
+    }
+    .social-links {
+      gap: 6px;
+      display: block;
+    }
+    .full-width-line {
+      width: 100%;
+      height: 1px;
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 932px) {
+  
+  
+  .logo {
+    width: 50%;
+    flex-shrink: 1;
+    min-width: 150px;
+    margin-left: 4px;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  .nav a {
+    display: none;
+  }
+  .nav-container {
+    padding: 8px 8px;
+    display: flex;
+  }
+
+  .ham-menu {
+    display: inline-flex;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-right: 20px;
+    opacity: 1;
+    scale: 1;
+    width: 20px;
+    touch-action: auto;
+    padding: 12px 0px;
+  }
+  .ham-menu:active {
+    scale: 1.05;
+    rotate: 90deg;
+  }
+  .dark-mode.ham-menu {
+    filter: invert(100%);
+  }
+
+  .nav-mobile-overlay {
+    display: none;
+    width: 35vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    position: fixed;
+    background-color: var(--bg-color);
+    z-index: 10000;
+    opacity: 0;
+    border-radius: 4px;
+    transition: all 0.5s ease-in-out;
+    animation: fadeInNav 0.65s ease-in-out reverse;
+  }
+
+  .nav-mobile-overlay.active {
+    display: block;
+    width: 35vw;
+    height: 100vh;
+    opacity: 1;
+    animation: fadeInNav 0.65s ease-in-out forwards;
+  }
+
+  .nav-mobile-overlay a {
+    display: flex;
+    text-align: center;
+    padding: 16px;
+    font-size: var(--font-size-h5);
+    color: var(--main-text-color);
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+    justify-content: center;
+  }
+  .contact,
+  .contact-letters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .contact {
+    scale: 0.8;
+    margin-left: -12px;
+}
+
+.contact-letters-span-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  scale: 1;
+
+}
+
+
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+
+
+
+@media (hover: hover) and (pointer: fine) {
+
+.logo:hover,
+.logo-footer:hover {
+  scale: 1.1;
+}
+
+.dark-mode .logo:hover, .dark-mode .logo-footer:hover {
+  filter: drop-shadow(0px 0px 2.5px var(--main-text-color));
+}
+
+.contact:hover {
+  background-color: var(--button-base-bg-hover);
+  color: var(--button-hover-text-color);
+  border-radius: 4px;
+  border-color: var(--button-base-bg-color);
+  background: var(--button-base-bg-color-hover);
+  text-decoration: none;
+}
+
+.dark-mode .contact:hover {
+  text-shadow: 0px 0px 4px var(--button-hover-text-color),
+    0px 0px 2px var(--button-hover-text-color);
+}
+
+.nav a:hover:not(.contact) {
+  scale: 1.075;
+  }
+  .dark-mode .nav a:hover:not(.contact) {
+    filter: drop-shadow(0px 0px 1.25px var(--button-base-bg-color));
+    text-shadow: 0px 0px 1.25px var(--button-hover-text-color);
+  }
+
+  .contact-letters:hover {
+    scale: 1.1;
+  }
+  .dark-mode .contact-letters:hover {
+    filter: drop-shadow(0px 0px 2px var(--button-base-bg-color));
+  }
+
+  .dark-mode #theme-toggle:hover {
+    filter: drop-shadow(0px 0px 4px var(--main-text-color));
+  }
+
+  #theme-toggle:hover {
+    scale: 1.3;
+    rotate: 90deg;
+  }
+
+  .sun:hover {
+    scale: 1.3;
+    rotate: 45deg;
+  }
+
+  .moon:hover {
+    scale: 1.3;
+    rotate: 45deg;
+    filter: drop-shadow(0px 0px 2px var(--main-text-color));
+  }
+
+  .social-links a:hover {
+    scale: 1.125;
+  }
+
+  .dark-mode .social-links a:hover {
+    filter: drop-shadow(0px 0px 1.25px var(--main-text-color));
+  }
+
+  .rage-mag span:hover {
+    scale: 1.05;
+  }
+
+  .dev-credits-span:hover {
+    scale: 1.1;
+    opacity: 1;
+    filter: drop-shadow(0px 0px 2px var(--main-text-color));
+  }
+
+}
+
+
+
+.logo,
+.logo-footer {
+  display: inline-flex;
+  width: 20%;
+  max-width: 224px;
+  min-width: 200px;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+
+
+.dark-mode .logo {
+  filter: drop-shadow(0px 0px 1.25px var(--main-text-color));
+}
+
+.dark-mode .logo-footer {
+  filter: drop-shadow(0px 0px 1.25px var(--main-text-color));
+}
+
+.logo-footer {
+  display: inline-flex;
+  width: 75%;
+  min-width: 224px;
+  flex-grow: 2;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0px;
+}
+
+.nav-button {
+  color: var(--Main-Text-Color, #58595b);
+  /* Body (Desktop & Tabelt) */
+  font-family: "Cormorant Garamond";
+  font-size: var(--font-size-p);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  background-color: transparent;
+  display: inline-block;
+}
+
+.nav .contact {
+  background-color: var(--button-base-bg-color);
+  border: solid 1px var(--button-base-bg-color);
+  color: var(--button-text-color);
+  border-radius: 4px;
+  padding: 8px;
+  text-decoration: none;
+  transform-origin: center;
+  transition: background-color 0.3s cubic-bezier(0.47, 0, 0.745, 0.715),
+    color 0.3s ease-in-out, border-color 0s, padding 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+button .contact:before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  background-image: linear-gradient(
+      120deg,
+      rgba(255,255,255, 0) 30%,
+      rgba(255,255,255, .8),
+      rgba(255,255,255, 0) 70%
+  );
+  top: 0;
+  left: -100px;
+}
+
+
+
+.contact:focus-visible {
+  background-color: var(--button-base-bg-hover);
+  color: var(--button-hover-text-color);
+  border-radius: 4px;
+  border-color: var(--button-base-bg-color);
+  background: var(--button-base-bg-color-hover);
+  text-decoration: none;
+}
+
+.dark-mode .contact:focus-visible {
+  text-shadow: 0px 0px 4px var(--button-hover-text-color),
+    0px 0px 2px var(--button-hover-text-color);
+}
+
+.contact:active {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.contact:hover {
+  background-color: var(--button-base-bg-hover);
+  color: var(--button-hover-text-color);
+  border-radius: 4px;
+  border-color: var(--button-base-bg-color);
+  background: var(--button-base-bg-color-hover);
+  text-decoration: none;
+}
+
+.dark-mode .contact:hover {
+  text-shadow: 0px 0px 4px var(--button-hover-text-color),
+    0px 0px 2px var(--button-hover-text-color);
+}
+
+.contact-letters:hover {
+  scale: 1.1;
+}
+
+.ham-menu {
+  display: none;
+  fill: var(--main-text-color);
+  stroke: var(--main-text-color);
+  stroke-miterlimit: 10;
+  outline: 200% solid var(--main-text-color);
+  scale: 0.5;
+}
+
+#ham_1 {
+  fill: var(--main-text-color);
+  stroke: var(--main-text-color);
+  stroke-miterlimit: 10;
+  outline: 200% solid var(--main-text-color);
+}
+
+.nav-mobile-overlay {
+  display: none;
+  z-index: 1001;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav a {
+  color: var(--main-text-color);
+  /* Body (Desktop & Tabelt) */
+  font-family: "Cormorant Garamond";
+  font-size: var(--font-size-p);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  background-color: transparent;
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.nav a:focus-visible:not(.contact) {
+  scale: 1.075;
+}
+
+.dark-mode .nav a:focus-visible:not(.contact) {
+  filter: drop-shadow(0px 0px 1.25px var(--button-base-bg-color));
+  text-shadow: 0px 0px 1.25px var(--button-hover-text-color);
+}
+
+.nav a:last-child {
+  text-decoration: none;
+}
+
+.contact-letters {
+  display: inline-flex;
+  margin: -1.8px;
+  transition: scale 0.2s ease-in-out, filter 0.4s ease-in-out,
+    transform 0.2s ease-in-out;
+  motion-rotation: auto;
+}
+
+.citation {
+  color: var(--main-text-color); 
+  font-size: var(--font-size-smallest);
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+
+#theme-toggle {
+  display: inline-flex;
+  cursor: pointer;
+  transition: scale 0.3s ease-in-out, rotation 0.3s ease-in-out;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  padding: 0%;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+#theme-toggle svg:last-child {
+  display: none;
+}
+.dark-mode #theme-toggle svg:first-child {
+  display: none;
+}
+.dark-mode #theme-toggle svg:last-child {
+  display: inline-flex;
+}
+
+.dark-mode #theme-toggle:focus-visible {
+  filter: drop-shadow(0px 0px 4px var(--main-text-color));
+}
+
+#theme-toggle:focus-visible {
+  scale: 1.3;
+  rotate: 90deg;
+}
+
+#theme-toggle:active {
+  scale: 1.4;
+  rotate: 960deg;
+  filter: opacity(0.01);
+  filter: blur(10);
+}
+
+.sun {
+  display: inline-flex;
+  cursor: pointer;
+  transition: scale 0.3s ease-in-out, rotation 0.3s ease-in-out;
+  align-items: center;
+  justify-content: center;
+}
+
+.moon {
+  display: none;
+  cursor: pointer;
+  transition: scale 0.3s ease-in-out, rotation 0.3s ease-in-out;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.footer-copy {
+  color: var(--main-text-color);
+  font-size: var(--font-size-p);
+
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-decoration: none;
+  padding: 4px;
+
+}
+
+.social-links a {
+  color: var(--main-text-color);
+  font-family: "Cormorant Garamond";
+  font-size: var(--font-size-p);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  background-color: transparent;
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  overflow: visible;
+}
+
+.social-links a:focus-visible {
+  scale: 1.125;
+}
+
+.dark-mode .social-links a:focus-visible {
+  filter: drop-shadow(0px 0px 1.25px var(--main-text-color));
+}
+
+.rage-mag {
+  display: inline-flex;
+  gap: 5px; /* Adjust gap between words if necessary */
+  color: var(--main-text-color);
+  text-decoration: none;
+  font-size: var(--font-size-p);
+}
+
+.rage-mag span {
+  animation: glow-animation 6s ease-in-out infinite;
+  opacity: 0.2; /* Dimmed state for non-glowing words */
+  color: var(--main-text-color);
+  font-size: var(--font-size-p);
+  transition: all 0.2s ease-in-out;
+}
+
+.rage-mag span:focus-visible {
+  scale: 1.05;
+}
+
+.dark-mode .rage-mag span {
+  animation: glow-animation-dark 6s ease-in-out infinite;
+}
+
+.dev-credits {
+  cursor: pointer;
+  display: inline-flex;
+  gap: 0px; /* Adjust gap between words if necessary */
+  color: var(--main-text-color);
+  text-decoration: none;
+  font-size: var(--font-size-p);
+  transition: all 0.2s ease-in-out;
+}
+
+.dev-credits-span {
+  color: var(--main-text-color);
+  font-size: var(--font-size-p);
+  transition: all 0.2s ease-in-out;
+  gap: 2px;
+  opacity: 0.2; /* Dimmed state for non-glowing words */
+  animation: glow-animation 9s cubic-bezier(1,.01,0,1) infinite;
+  animation: glow-animation-dev-reverse 6s cubic-bezier(.42,.01,0,.98) 9s infinite;
+
+}
+
+.dark-mode .dev-credits-span {
+  animation: glow-animation-dark-dev 9s cubic-bezier(1,.01,0,1) infinite;
+  animation: glow-animation-dark-dev-reverse 6s cubic-bezier(.42,.01,0,.98) 9s infinite;
+}
+
+.dev-credits-span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dev-credits-span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.dev-credits-span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.dev-credits-span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.dev-credits-span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.dev-credits-span:nth-child(7) {
+  animation-delay: 0.5s;
+}
+
+.dev-credits-span:nth-child(8) {
+  animation-delay: 0.6s;
+}
+
+.dev-credits-span:nth-child(9) {
+  animation-delay: 0.7s;
+}
+
+.dev-credits-span:nth-child(10) {
+  animation-delay: 0.8s;
+}
+
+.dev-credits-span:nth-child(11) {
+  animation-delay: 0.9s;
+}
+
+.dark-mode .dev-credits-span {
+  filter: drop-shadow(0px 0px 1.25px var(--main-text-color));
+}
+
+
+.letter-logo {
+  transition: all 0.1s ease-out;
+}
+
+
+.letter-logo:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.letter-logo:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.letter-logo:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.letter-logo:nth-child(4) {
+  animation-delay: 3s;
+}
+
+.letter-logo:nth-child(5) {
+  animation-delay: 4s;
+}
+
+.letter-logo:nth-child(6) {
+  animation-delay: 5s;
+}
+
+.letter-logo:nth-child(7) {
+  animation-delay: 6s;
+}
+
+.letter-logo:nth-child(8) {
+  animation-delay: 7s;
+}
+
+.letter-logo:nth-child(9) {
+  animation-delay: 8s;
+}
+
+body.blurred * {
+  transition: all 0.5s ease-in-out;
+  filter: blur(5px); /* Apply blur to everything */
+}
+
+
+.hidden {
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+}
+
+
+/* Keyframes to create the glowing effect */
+@keyframes glow-animation {
+  0%,
+  75%,
+  100% {
+    opacity: 0.2;
+  } /* Dim state at the start, during, and end */
+  10% {
+    opacity: 1;
+  } /* Full glow */
+}
+
+/* Keyframes to create the glowing effect */
+@keyframes glow-animation-dark {
+  0%,
+  75%,
+  100% {
+    opacity: 0.2;
+    filter: drop-shadow(0px 0px 0px var(--main-text-color));
+  } /* Dim state at the start, during, and end */
+  10% {
+    opacity: 1;
+    filter: drop-shadow(0px 0px 2px var(--main-text-color));
+  } /* Full glow */
+}
+
+@keyframes glow-animation-dark-dev {
+  0% {
+    opacity: 0.2;
+    filter: drop-shadow(0px 0px 0px var(--main-text-color));
+  } /* Dim state at the start, during, and end */
+  
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0px 0px 2px var(--main-text-color));
+  } /* Dim state at the start, during, and end */
+
+}
+
+@keyframes glow-animation-dark-dev-reverse {
+  0% {
+    opacity: 1;
+    filter: drop-shadow(0px 0px 2px var(--main-text-color));
+  } /* Dim state at the start, during, and end */
+  
+  100% {
+    opacity: 0.2;
+    filter: drop-shadow(0px 0px 0px var(--main-text-color));
+  } /* Dim state at the start, during, and end */
+
+}
+
+@keyframes glow-animation-dev-reverse {
+  0% {
+    opacity: 1;
+  } /* Dim state at the start, during, and end */
+  
+  100% {
+    opacity: 0.2;
+  } /* Dim state at the start, during, and end */
+
+}
+
+
+/* Apply delays to make each word glow in sequence */
+.rage-mag span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.rage-mag span:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.rage-mag span:nth-child(3) {
+  animation-delay: 2s;
+}
+
+@keyframes glow-animation-button {
+  0%,
+  100% {
+    color: var(--main-text-color);
+  } /* Dim state at the start, during, and end */
+  50% {
+    color: var(--button-text-color);
+  } /* Full glow */
+}
+
+@keyframes glow-animation-button-hover {
+  0%,
+  100% {
+    color: #d9d9d9;
+  } /* Dim state at the start, during, and end */
+  50% {
+    color: #58595b;
+  } /* Full glow */
+}
+
+@keyframes logo-brightness {
+  0%,
+  100% {
+    filter: brightness(0);
+    filter: drop-shadow(none);
+  } /* Dim state at the start, during, and end */
+  50% {
+    filter: brightness(2);
+  } /* Full glow */
+}
+
+@keyframes fadeInUnderline {
+  0% {
+    text-decoration-color: none;
+    text-decoration: none;
+  } /* Dim state at the start, during, and end */
+  50% {
+    text-decoration-color: var(--button-base-bg-color);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    fill-opacity: 0.1;
+  }
+  100% {
+    text-decoration-color: var(--button-base-bg-color);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    fill-opacity: 1;
+  }
+}
+
+@keyframes fadeInNav {
+  0% {
+    translate: (-100%);
+    opacity: 0;
+  } /* Dim state at the start, during, and end */
+  100% {
+    translate: (0%);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  } /* Dim state at the start, during, and end */
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLogo {
+  0% {
+    opacity: 0;
+    translate: (0, -50%);
+  } /* Dim state at the start, during, and end */
+  100% {
+    opacity: 1;
+    translate: (0, 0);
+  }
+}
+
+@keyframes fadeInLogoDark {
+  0% {
+    opacity: 0;
+    transform: translateY(-75%);
+    filter: drop-shadow(0px 0px 0px var(--main-text-color));
+  } 
+
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: drop-shadow(0px 0px 0.28px var(--main-text-color));
+  }
+
+
+  75% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: drop-shadow(0px 0px 0.28px var(--main-text-color));
+    scale: 1;
+  }
+
+
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+    transform: scale3d(1, 1, 100);
+    filter: drop-shadow(0px 0px 0.28px var(--main-text-color));
+  }
+}
+
+@-webkit-keyframes fadeInLogoDark {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-75%);
+    transform: translateY(-75%);
+    -webkit-filter: drop-shadow(0px 0px 0px var(--main-text-color));
+    filter: drop-shadow(0px 0px 0px var(--main-text-color));
+  }
+
+  50% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-filter: drop-shadow(0px 0px 0.28px var(--main-text-color));
+    filter: drop-shadow(0px 0px 0.28px var(--main-text-color));
+  }
+
+  75% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    -webkit-filter: drop-shadow(0px 0px 0.28px var(--main-text-color));
+    filter: drop-shadow(0px 0px 0.28px var(--main-text-color));
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(0) scale3d(1, 1, 100);
+    transform: translateY(0) scale3d(1, 1, 100);
+    -webkit-filter: drop-shadow(0px 0px 0.28px var(--main-text-color));
+    filter: drop-shadow(0px 0px 0.28px var(--main-text-color));
+  }
+}
+
+@keyframes shine {
+  0% {left: -100px}
+  20% {left: 100%}
+  100% {left: 100%}
+}
