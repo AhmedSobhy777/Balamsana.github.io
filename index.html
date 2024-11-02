@@ -485,7 +485,10 @@ Sojcher, Louis. "Tran Anh Hung, réalisateur en lice aux Oscars: ‘Les talents 
         <footer class="footer">
           <div class="site-credits">
             <svg
-              onclick="window.scrollTo(0, 0)"
+              onclick="window.scrollTo({
+                top: 0,  // or any specific position
+                behavior: 'smooth'
+              });"
               class="logo-footer"
               style="margin-bottom: -20px"
               id="Layer_1"
