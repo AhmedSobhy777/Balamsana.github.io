@@ -195,10 +195,6 @@ img {
   outline-offset: 2px;
 }
 
-.bg {
-  width: 80%;
-  margin: 0 auto;
-}
 
 .full-width-line {
   width: 100%;
@@ -420,6 +416,8 @@ body.fade-in {
     .social-links {
       gap: 6px;
       display: block;
+      padding: 0;
+      margin-top: -4px;
     }
     .full-width-line {
       width: 100%;

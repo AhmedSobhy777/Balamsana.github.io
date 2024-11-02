@@ -1,8 +1,10 @@
 
+
 body {
   overflow-y: auto;
   overflow-x: hidden;
   height: auto;
+  width: 100%;
 }
 .about-box {
   display: flex;
@@ -27,7 +29,6 @@ body {
       justify-content: center;
       align-items: center;
       padding-bottom: 10px;
-      transform-style: preserve-3d;
       width: 100%;
       max-width: 100%;
     }
@@ -44,6 +45,7 @@ body {
     }
     .about-box {
       scale: 1.4;
+      
     }
     
   }
