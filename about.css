@@ -86,10 +86,6 @@ body {
   }
   
 
-.bg {
-  overflow-y: auto;
-  scroll-behavior: smooth;
-}
 
 .about-container {
   overflow: hidden;
