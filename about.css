@@ -19,7 +19,7 @@ body {
   width: 50vw;
   height: 80vh;
   text-align: center;
-  overflow: visible;
+
 }
 
 @media (max-width: 480px) {
