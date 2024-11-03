@@ -332,7 +332,7 @@ body.fade-in {
       margin-bottom: -24px;
       margin-left: -12px;
       opacity: 1;
-      scale: 1;
+      scale: 1.2;
       width: 20px;
       touch-action: auto;
       padding: 24px 12px;
@@ -342,6 +342,9 @@ body.fade-in {
       rotate: 90deg;
     }
     .dark-mode.ham-menu {
+      filter: invert(100%);      
+    }
+    .dark-mode #ham_pic {
       filter: invert(100%);
     }
 
